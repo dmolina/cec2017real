@@ -42,6 +42,7 @@ double cec17_fitness(double *sol) {
 
   cec17_test_func(sol, &fit, dimension, 1, funcid);
   count += 1;
+  assert(count <= max_evals);
 
   if (count == 1 || fit < best) {
     best = fit;
