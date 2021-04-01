@@ -12,6 +12,7 @@ static int max_ratios = 14;
 static int last_ratio = 0;
 static char fname[300];
 static double best;
+static FILE *output  = NULL;
 
 void cec17_setfun(int fid, int size) {
   assert (fid > 0 && fid <= 30);
@@ -20,6 +21,11 @@ void cec17_setfun(int fid, int size) {
   dimension = size;
   count = 0;
   last_ratio = 0;
+
+  if (output != NULL) {
+    fclose(output);
+  }
+  output = NULL;
   sprintf(fname, "results_%d_%d.txt", fid, size);
   max_evals = 10000*dimension;
 }
@@ -32,7 +38,6 @@ double cec17_error(double fitness) {
 
 double cec17_fitness(double *sol) {
   double fit;
-  static FILE *output = NULL;
   int ratio;
 
   cec17_test_func(sol, &fit, dimension, 1, funcid);
