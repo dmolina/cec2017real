@@ -23,7 +23,7 @@ int main() {
     std::mt19937 gen(seed); // Inicio semilla
     int evals = 0;
 
-    while (evals <= 10000*dim) {
+    while (evals < 10000*dim) {
       for (int i = 0; i < dim; i++) {
         sol[i] = dis(gen);
       }
