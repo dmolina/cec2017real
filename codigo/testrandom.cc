@@ -21,6 +21,8 @@ int main() {
     double best = -1;
 
     cec17_init("random", funcid, dim);
+    cec17_print_output();
+
     std::mt19937 gen(seed); // Inicio semilla
     int evals = 0;
 

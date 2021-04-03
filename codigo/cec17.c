@@ -15,7 +15,7 @@ static int last_ratio = 0;
 static char fname[300];
 static double best;
 static char directory[30];
-static FILE *output  = NULL;
+static int print_output = 0;
 
 void cec17_init(const char *algname, int fid, int size) {
   assert (fid > 0 && fid <= 30);
@@ -25,13 +25,14 @@ void cec17_init(const char *algname, int fid, int size) {
   count = 0;
   last_ratio = 0;
 
-  if (output != NULL) {
-    fclose(output);
-  }
-  output = NULL;
   sprintf(directory, "results_%s", algname);
   sprintf(fname, "%s%cresults_%d_%d.txt", directory, PATH_SEPARATOR, fid, size);
+  print_output = 0;
   max_evals = 10000*dimension;
+}
+
+void cec17_print_output(void) {
+  print_output = 1;
 }
 
 double cec17_error(double fitness) {
@@ -42,6 +43,7 @@ double cec17_error(double fitness) {
 
 double cec17_fitness(double *sol) {
   double fit;
+  static FILE *output  = NULL;
   int ratio;
 
   cec17_test_func(sol, &fit, dimension, 1, funcid);
@@ -55,7 +57,7 @@ double cec17_fitness(double *sol) {
   ratio = count*100/max_evals;
 
   if (ratio >= ratios[last_ratio]) {
-    if (output == NULL) {
+    if (output == NULL && print_output == 0) {
       int exists = 0;
       FILE *ver = fopen(fname, "r");
       if (ver != NULL) {
@@ -75,12 +77,17 @@ double cec17_fitness(double *sol) {
       }
     }
 
-    fprintf(output, "%d,%d,%d,%e\n", funcid, dimension, ratio, cec17_error(best));
+    if (print_output == 1) {
+      printf("%d,%d,%d,%e\n", funcid, dimension, ratio, cec17_error(best));
+    }
+    else {
+      fprintf(output, "%d,%d,%d,%e\n", funcid, dimension, ratio, cec17_error(best));
+      fclose(output);
+      output = NULL;
+    }
     last_ratio += 1;
 
     if (last_ratio >= max_ratios) {
-      fclose(output);
-      output = NULL;
       last_ratio = 0;
     }
 

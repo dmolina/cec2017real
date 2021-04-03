@@ -16,6 +16,11 @@
 void cec17_init(const char *algname, int funcid, int dimension);
 
 /**
+ * Desactiva el guardar en fichero, y muestra por pantalla.
+ */
+void cec17_print_output(void);
+
+/**
  * Devuelve el error asociado al fitness.
  * @param fitness a comparar.
  * @return error (fitness - optimum).
