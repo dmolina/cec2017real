@@ -16,10 +16,11 @@ int main() {
   for (int funcid = 1; funcid <= 30; funcid++) {
     vector<double> sol(dim);
     vector<double> bestsol(dim);
+    char dir_output[] = "results_random\\";
     double fitness;
     double best = -1;
 
-    cec17_setfun(funcid, dim);
+    cec17_init("random", funcid, dim);
     std::mt19937 gen(seed); // Inicio semilla
     int evals = 0;
 

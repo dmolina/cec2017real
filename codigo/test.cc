@@ -14,7 +14,7 @@ int main() {
     vector<double> sol(dim);
     double fitness;
 
-    cec17_setfun(funcid, dim);
+    cec17_init("test", funcid, dim);
 
     for (int i = 0; i < dim; i++) {
       sol[i] = i;

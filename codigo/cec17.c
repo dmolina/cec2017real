@@ -1,5 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "cec17.h"
 
 void cec17_test_func(double *x, double *f, int nx, int mx,int func_num);
 
@@ -12,9 +14,10 @@ static int max_ratios = 14;
 static int last_ratio = 0;
 static char fname[300];
 static double best;
+static char directory[30];
 static FILE *output  = NULL;
 
-void cec17_setfun(int fid, int size) {
+void cec17_init(const char *algname, int fid, int size) {
   assert (fid > 0 && fid <= 30);
   assert (size == 2 || size == 5 || size == 10 || size == 30 || size == 50);
   funcid = fid;
@@ -26,7 +29,8 @@ void cec17_setfun(int fid, int size) {
     fclose(output);
   }
   output = NULL;
-  sprintf(fname, "results_%d_%d.txt", fid, size);
+  sprintf(directory, "results_%s", algname);
+  sprintf(fname, "%s%cresults_%d_%d.txt", directory, PATH_SEPARATOR, fid, size);
   max_evals = 10000*dimension;
 }
 
@@ -60,6 +64,11 @@ double cec17_fitness(double *sol) {
       }
 
       output = fopen(fname, "a");
+
+      if (output == NULL) {
+        fprintf(stderr, "Error, it cannot be possible to create file '%s', the directory '%s' exists?\n", fname, directory);
+        exit(1);
+      }
 
       if (!exists) {
         fprintf(output, "funcid,dim,milestone,error\n");
