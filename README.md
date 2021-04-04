@@ -132,7 +132,7 @@ was included in [tacolab](https://www.tacolab.org).
 
 API obtained by the doxygen and thanks to (https://delight-im.github.io/Javadoc-to-Markdown/).
 
-## `void cec17_init(const char *algname, int funcid, int dimension)`
+### `void cec17_init(const char *algname, int funcid, int dimension)`
 
 Init the fitness function and dimension.
 
@@ -141,18 +141,18 @@ Init the fitness function and dimension.
    * `funcid` — must be between 1 and 30.
    * `dimension` — must be 2, 5, 10, 30, 50, or 100.
 
-## `void cec17_print_output(void)`
+### `void cec17_print_output(void)`
 
 Desactivate the output to external files, instead it will be shown at the console.
 
-## `double cec17_error(double fitness)`
+### `double cec17_error(double fitness)`
 
 Return the error related with the fitness.
 
  * **Parameters:** `fitness` — to compare.
  * **Returns:** error (fitness - optimum).
 
-## `double cec17_fitness(double *sol)`
+### `double cec17_fitness(double *sol)`
 
 The fitness function to  evaluate from the solution.
 
