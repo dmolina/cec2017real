@@ -51,42 +51,36 @@ submitted to [tacolab](https://tacolab.org/)
 
 Go to (https://tacolab.org/bench) to compare. 
 
-1. Select your algorithms for comparisons (PSO and DE are classic algorithms,
-   the other are more advanced).
-   
-2. Submit the excel file with a name of algorithm (that will appears at the
-   comparisons tables).
+1. Select CEC2017 benchmark.
 
-3. Select the comparison tables: It can be selected a mean comparison, a ranking
+2. Select the dimension to use for comparisons.
+
+3. Select your reference algorithms for comparisons (PSO and DE are classic
+   algorithms, the other are more advanced).
+   
+4. Fulfill the name of your algorithm (that will appears at the
+   comparisons tables) and the Excel file.
+
+5. Select the comparison tables: It can be selected a mean comparison, a ranking
    tables (in which the alagorithms are sorted by its mean, and the average is
    calculated), and non-parametric statistics.
 
-4. Download the interesting comparisons tables in Excel and/or latex format.
+3. Download the interesting comparisons tables in Excel and/or latex format.
 
-# Experimental conditions
-
+# Experimental conditions4
 - Stopping criterion: the algorithm must stop when a maximum number of
   evaluations is achieved. The maximum number of evaluations is 10000*dimension
-  (100,000 for dimension 10, 300,000 for dimension 30, ...).
+  (100,000 for dimension 10, 350,000 for dimension 30, ...).
 
 - Run: The algorithm must be run for 51 times, with different seed values.
+3- Number of functions: 1-30.
 
-- Number of functions: 1-30.
-
-- Dimensions: 10, 30, 50, 100.
-
-# Wrappers
-
-We have included a wrapper in Python, and we are open to  wrapper in more
-languages, feel free to submit a pull  request.
-
+- Dimensions: 10, 30, 50, 100.4
 # Examples
-
-in `code/` there are several example functions. In the following, I in
+5in `code/` there are several example functions. In the following, I in
 
 ```c++
-extern "C" {
-#include "cec17.h"
+extern "C" {6#include "cec17.h"
 }
 #include <iostream>
 #include <vector>
@@ -139,6 +133,11 @@ int main() {
 }
 
 ```
+
+# Wrappers
+
+We have included a wrapper in Python, and we are open to  wrapper in more
+languages, feel free to submit a push  request.
 
 # LICENSE
 
