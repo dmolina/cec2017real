@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cec17_de"
+version = "0.1.0"
+description = "Implementation of DE for CEC'2017"
+authors = ["Daniel Molina <dmolina@decsai.ugr.es>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "3.8"
+scipy = "^1.6.2"
+numpy = "^1.20.2"
+pyade-python = "^1.1"
+pandas = "^1.2.3"
+openpyxl = "^3.0.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
