@@ -91,23 +91,28 @@ int main() {
     // If it is commented the output is print in console, instead of external files.
     // cec17_print_output();
 
-    std::mt19937 gen(seed); // Inicio semilla
+    std::mt19937 gen(seed); // Start seed
     int evals = 0;
 
     while (evals < 10000*dim) {
+      // Generate random solution
       for (int i = 0; i < dim; i++) {
         sol[i] = dis(gen);
       }
 
+      // Evaluate the solution
       fitness = cec17_fitness(&sol[0]);
+      // Increase count
       evals += 1;
 
+      // Calculate the best one
       if (evals == 1 || fitness < best) {
         best = fitness;
         bestsol = sol;
       }
     }
 
+    // Show the error of the best solution
     cout <<"Best Random[F" <<funcid <<"]: " << scientific <<cec17_error(best) <<endl;
   }
 
