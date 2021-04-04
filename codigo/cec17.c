@@ -19,7 +19,7 @@ static int print_output = 0;
 
 void cec17_init(const char *algname, int fid, int size) {
   assert (fid > 0 && fid <= 30);
-  assert (size == 2 || size == 5 || size == 10 || size == 30 || size == 50);
+  assert (size == 2 || size == 5 || size == 10 || size == 30 || size == 50 || size == 100);
   funcid = fid;
   dimension = size;
   count = 0;
