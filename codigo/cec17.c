@@ -79,6 +79,7 @@ double cec17_fitness(double *sol) {
 
     if (print_output == 1) {
       printf("%d,%d,%d,%e\n", funcid, dimension, ratio, cec17_error(best));
+      fflush(stdout);
     }
     else {
       fprintf(output, "%d,%d,%d,%e\n", funcid, dimension, ratio, cec17_error(best));
