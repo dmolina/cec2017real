@@ -24,24 +24,44 @@ $ cmake .
 
 # Usage
 
-The steps of using:
+## Do the experiments
 
-1. Configure the function, this is done with function cec17_init, with the
-   algorithm name (used to calculate the output directory), the function id, and
-   the dimension.
-   
-2. Run the algorithm with cec17_fitness to evaluations solutions (must have
-   length equals to dimension). You can use a double * or a vector<double>.
+Prepare the source code of the algorithms following the experimental conditions
+indicated in this file.
 
-3. After the experimental is done, you can run the extract.py script to
-   generate an Excel file with all mean values.
+1. Init the benchmark, using the cec17_init function:
+
+```cec17_init(<algname>, funcid, dimension)```
+
+when algname is the name of your algorithm (for the output file).
+
+2. Run your algorithm using cec17_fitness to evaluate each solution.
+
+  
+## Generate the external Excel file
+
+```sh
+$ python extract.py results_<algname>
+```
+
+This program create the file results_cec2017_<algname>.xlsx ready to be
+submitted to [tacolab](https://tacolab.org/)
+
+## using Tacolab
+
+Go to (https://tacolab.org/bench) to compare. 
+
+1. Select your algorithms for comparisons (PSO and DE are classic algorithms,
+   the other are more advanced).
    
-4. Use [tacolab](https://tacolab.org/bench) to compare. You can select your
-   algorithms for comparisons (PSO and DE are classic algorithms, the other are
-   more advanced), submitting the excel file with a name of algorithm (that will
-   appears at the comparisons tables).
-   
-5. You can download the comparisons tables in Excel and/or latex format.
+2. Submit the excel file with a name of algorithm (that will appears at the
+   comparisons tables).
+
+3. Select the comparison tables: It can be selected a mean comparison, a ranking
+   tables (in which the alagorithms are sorted by its mean, and the average is
+   calculated), and non-parametric statistics.
+
+4. Download the interesting comparisons tables in Excel and/or latex format.
 
 # Experimental conditions
 
