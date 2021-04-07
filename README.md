@@ -67,7 +67,7 @@ Go to (https://tacolab.org/bench) to compare.
 
 3. Download the interesting comparisons tables in Excel and/or latex format.
 
-# Experimental conditions4
+# Experimental conditions
 - Stopping criterion: the algorithm must stop when a maximum number of
   evaluations is achieved. The maximum number of evaluations is 10000*dimension
   (100,000 for dimension 10, 350,000 for dimension 30, ...).
@@ -75,7 +75,8 @@ Go to (https://tacolab.org/bench) to compare.
 - Run: The algorithm must be run for 51 times, with different seed values.
 3- Number of functions: 1-30.
 
-- Dimensions: 10, 30, 50, 100.4
+- Dimensions: 10, 30, 50, 100.
+
 # Examples
 5in `code/` there are several example functions. In the following, I in
 
