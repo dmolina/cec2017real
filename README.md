@@ -14,7 +14,7 @@ directory *results_<algname>*.
 
 - A script, extrae.py to 
 
-# INSTALLL
+# INSTALL
 
 It requires the [CMake](https://cmake.org/) tool to compile the source code in a shared library.
 
@@ -80,7 +80,8 @@ Go to (https://tacolab.org/bench) to compare.
 5in `code/` there are several example functions. In the following, I in
 
 ```c++
-extern "C" {6#include "cec17.h"
+extern "C" {
+#include "cec17.h"
 }
 #include <iostream>
 #include <vector>
