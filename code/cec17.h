@@ -1,5 +1,7 @@
 #ifndef _CEC17
 
+#define _CEC17 1
+
 #if defined(WIN32) || defined(_WIN32) || defined (_WIN64)
 #define PATH_SEPARATOR '\\'
 #else
