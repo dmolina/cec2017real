@@ -31,7 +31,6 @@ def main():
         dict.update({"F{:02d}".format(i): []})
 
     dict.update({"dimension": []})
-    output_df = pd.DataFrame(dict)
 
     for fname in fnames:
         df = pd.read_csv(fname)
@@ -45,6 +44,7 @@ def main():
     for (dim, df) in dim_df:
         milestones = [int(mil) for mil in np.unique(df.milestone)]
         funs = [int(fun) for fun in np.unique(df.funcid)]
+        output_df = pd.DataFrame(dict)
 
         if len(milestones) != 14:
             print(f"Error in milestones: {milestones}", file=sys.stderr)
