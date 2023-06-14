@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.0)
 PROJECT(cec17)
 ADD_EXECUTABLE(test "test.cc")
 ADD_EXECUTABLE(testrandom "testrandom.cc")
