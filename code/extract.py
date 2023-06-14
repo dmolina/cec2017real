@@ -34,7 +34,7 @@ def main():
 
     for fname in fnames:
         df = pd.read_csv(fname)
-        globaldf = globaldf.append(df)
+        globaldf = pd.concat([globaldf, df], ignore_index=True)
 
     def funformat(funid):
         return "F{:02d}".format(funid)
@@ -42,6 +42,9 @@ def main():
     dim_df = globaldf.groupby(['dim'])
 
     for (dim, df) in dim_df:
+        if isinstance(dim, tuple):
+            dim = dim[0]
+
         milestones = [int(mil) for mil in np.unique(df.milestone)]
         funs = [int(fun) for fun in np.unique(df.funcid)]
         output_df = pd.DataFrame(dict)
@@ -76,7 +79,6 @@ def main():
                 value = float(row.error)
                 dict.update({funcol: value})
 
-            df_row = pd.DataFrame(dict)
             output_df = pd.concat([output_df, pd.DataFrame(dict)])
 
         fname = "results_cec2017_{}.xlsx".format(int(dim))
