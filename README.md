@@ -12,7 +12,13 @@ In addition to original benchmark code it contains:
 store in external files, with filename *results_<funcid>_<dimension>.txt* in a
 directory *results_<algname>*.
 
-- A script, extrae.py to 
+- A script, extrae.py to generate automatically the results ready to use tacolab.
+
+# About the benchmark
+
+For information about the benchmark you can read:
+
+https://github.com/P-N-Suganthan/CEC2017-BoundContrained/blob/master/Definitions%20of%20%20CEC2017%20benchmark%20suite%20final%20version%20updated.pdf
 
 # INSTALL
 
